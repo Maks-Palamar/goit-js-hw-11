@@ -5,7 +5,7 @@ const gallery = document.querySelector('.cards');
         const cardHTML =
             `<li class="card"> 
                 <a class="card-link" href="${card.largeImageURL}">
-                    <img class="card-img" src="${card.webformatURL}" alt="${card.tags}" />
+                    <img class="card-img" src="${card.webformatURL}" alt="${card.tags}" data-source="${card.largeImageURL}" />
                 </a>
                 <div class="card-data">
                     <div class="data-wrap">
@@ -26,6 +26,7 @@ const gallery = document.querySelector('.cards');
                     </div>
                 </div>
              </li>`;
-        gallery.innerHTML += cardHTML;
+          gallery.innerHTML += cardHTML;
+          
     })
 }
