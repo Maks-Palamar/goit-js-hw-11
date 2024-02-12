@@ -51,6 +51,9 @@ form.addEventListener('submit', event => {
             if (data.hits.length === 0) {
                 iziToast.show({
                     title: 'Error',
+                    backgroundColor: '#EF4040',
+                    messageColor: '#FFFFFF',
+                    titleColor: '#FFFFFF',
                     message: 'Sorry, there are no images matching your search query. Please try again!',
                     position: 'bottomRight'
                 })
