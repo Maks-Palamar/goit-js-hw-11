@@ -40,14 +40,11 @@ button {
   margin-top: 32px;
   padding: 0;
   list-style: none;
-  /*width: 1128px;
-  height: 200px;*/
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
-  padding-left: ;
 }
 
 .card {
