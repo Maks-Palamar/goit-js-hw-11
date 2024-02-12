@@ -23,7 +23,7 @@ function getImages(imgName) {
     return fetch(url, options)
         .then(res => {
             if (!res.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Server responded with error');
             }
             return res.json();
         })
@@ -33,7 +33,7 @@ form.addEventListener('submit', event => {
     event.preventDefault();
     const userInput = event.target.elements.search.value;
 
-if (userInput === "") {
+    if (userInput === "") {
         iziToast.show({
             title: 'Error',
             message: 'Please enter a search query!',
