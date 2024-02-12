@@ -10,6 +10,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import renderCard from './render-functions.js';
 
 const form = document.querySelector('.form');
+const loader = document.getElementById('loader');
 
 function getImages(imgName) {
     const BASE_URL = 'https://pixabay.com';
@@ -49,6 +50,8 @@ form.addEventListener('submit', event => {
         return;
     }
 
+    showLoader();
+
     getImages(userInput)
         .then(data => {
             if (data.hits.length === 0) {
@@ -65,9 +68,17 @@ form.addEventListener('submit', event => {
                 const lightbox = new SimpleLightbox(".cards a", { captionsData: "alt", captionDelay: 250, captionPosition: 'bottom' });
                 lightbox.refresh();
             }
+            hideLoader();
         })
         .catch(error => {
             console.log(error);
         })
 })
 
+function showLoader() {
+        loader.style.display = 'block';
+    }
+
+    function hideLoader() {
+        loader.style.display = 'none';
+    }
