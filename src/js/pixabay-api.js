@@ -40,6 +40,9 @@ form.addEventListener('submit', event => {
     if (userInput === "") {
         iziToast.show({
             title: 'Error',
+            backgroundColor: '#EF4040',
+            messageColor: '#FFFFFF',
+            titleColor: '#FFFFFF',
             message: 'Please enter a search query!',
             position: 'bottomRight'
         });
