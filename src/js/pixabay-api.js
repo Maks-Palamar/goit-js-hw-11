@@ -36,7 +36,7 @@ function getImages(imgName) {
 
 form.addEventListener('submit', event => {
     event.preventDefault();
-    const userInput = event.target.elements.search.value;
+    const userInput = event.target.elements.search.value.trim();
 
     if (userInput === "") {
         iziToast.show({
@@ -55,6 +55,9 @@ form.addEventListener('submit', event => {
     getImages(userInput)
         .then(data => {
             if (data.hits.length === 0) {
+                const gallery = document.querySelector('.cards');
+                gallery.innerHTML = '';
+                nothingLoader();
                 iziToast.show({
                     title: 'Error',
                     backgroundColor: '#EF4040',
@@ -67,8 +70,8 @@ form.addEventListener('submit', event => {
                 renderCard(data.hits);
                 const lightbox = new SimpleLightbox(".cards a", { captionsData: "alt", captionDelay: 250, captionPosition: 'bottom' });
                 lightbox.refresh();
+                hideLoader();
             }
-            hideLoader();
         })
         .catch(error => {
             console.log(error);
@@ -76,9 +79,13 @@ form.addEventListener('submit', event => {
 })
 
 function showLoader() {
-        loader.style.display = 'block';
-    }
+    loader.style.display = 'block';
+}
 
-    function hideLoader() {
-        loader.style.display = 'none';
-    }
+function hideLoader() {
+    loader.style.display = 'none';
+}
+    
+function nothingLoader() {
+    loader.textContent = 'Nothing found :(';
+}
