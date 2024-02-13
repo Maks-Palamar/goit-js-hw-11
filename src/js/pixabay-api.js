@@ -57,7 +57,7 @@ form.addEventListener('submit', event => {
             if (data.hits.length === 0) {
                 const gallery = document.querySelector('.cards');
                 gallery.innerHTML = '';
-                nothingLoader();
+                hideLoader();
                 iziToast.show({
                     title: 'Error',
                     backgroundColor: '#EF4040',
@@ -84,8 +84,4 @@ function showLoader() {
 
 function hideLoader() {
     loader.style.display = 'none';
-}
-    
-function nothingLoader() {
-    loader.textContent = 'Nothing found :(';
 }
